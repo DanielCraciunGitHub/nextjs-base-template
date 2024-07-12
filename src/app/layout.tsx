@@ -8,13 +8,6 @@ import { baseMetadata, baseViewport } from "@/config/metadata"
 import ScrollToTopButton from "@/components/Buttons/ScrollToTopButton"
 import { Provider } from "@/components/providers"
 
-export const metadata: Metadata = {
-  ...baseMetadata,
-}
-export const viewport: Viewport = {
-  ...baseViewport,
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -31,4 +24,11 @@ export default function RootLayout({
       </body>
     </html>
   )
+}
+
+export const metadata: Metadata = {
+  ...baseMetadata,
+}
+export const viewport: Viewport = {
+  ...baseViewport,
 }
