@@ -1,3 +1,7 @@
+import { Metadata } from "next"
+
+import { staticMetadata } from "@/config/metadata"
+
 export default async function Home() {
   return (
     <section className="flex flex-col">
@@ -6,4 +10,8 @@ export default async function Home() {
       </div>
     </section>
   )
+}
+
+export const metadata: Metadata = {
+  ...staticMetadata.mainPage,
 }
