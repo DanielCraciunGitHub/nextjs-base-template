@@ -6,6 +6,7 @@ import { twMerge } from "tailwind-merge"
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
+
 export function nameToPath(name: string): string {
   return `/${name.toLowerCase().replaceAll(" ", "_")}`
 }
@@ -33,7 +34,7 @@ export function getInitials(name?: string | null): string | undefined {
   return initials
 }
 
-const formatDistanceLocale = {
+const formatTimeDistanceLocale = {
   lessThanXSeconds: "just now",
   xSeconds: "just now",
   halfAMinute: "just now",
@@ -52,11 +53,15 @@ const formatDistanceLocale = {
   almostXYears: "{{count}}y",
 }
 
-function formatDistance(token: string, count: number, options?: any): string {
+function formatTimeDistance(
+  token: string,
+  count: number,
+  options?: any
+): string {
   options = options || {}
 
-  const result = formatDistanceLocale[
-    token as keyof typeof formatDistanceLocale
+  const result = formatTimeDistanceLocale[
+    token as keyof typeof formatTimeDistanceLocale
   ].replace("{{count}}", count.toString())
 
   if (options.addSuffix) {
@@ -76,10 +81,11 @@ export function formatTimeToNow(date: Date): string {
     addSuffix: true,
     locale: {
       ...locale,
-      formatDistance,
+      formatDistance: formatTimeDistance,
     },
   })
 }
+
 export function sqliteTimestampNow(): string {
   // Get the current date
   const currentDate = new Date()
