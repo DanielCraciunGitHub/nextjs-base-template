@@ -1,6 +1,6 @@
-import { siteConfig } from "@/config"
 import { Menu } from "lucide-react"
 
+import { siteConfig } from "@/config/next-inject"
 import {
   Sheet,
   SheetClose,

@@ -1,5 +1,4 @@
-import { siteConfig } from "@/config"
-
+import { siteConfig } from "@/config/next-inject"
 import { DarkModeButton } from "@/components/Buttons/DarkModeButton"
 
 export const Footer = () => (
