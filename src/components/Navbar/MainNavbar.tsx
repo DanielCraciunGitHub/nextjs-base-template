@@ -1,4 +1,4 @@
-import { siteConfig } from "@/config"
+import { siteConfig } from "@/config/next-inject"
 
 import { NavItem } from "./NavItem"
 
