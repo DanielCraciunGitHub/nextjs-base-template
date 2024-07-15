@@ -6,7 +6,7 @@ import NextTopLoader from "nextjs-toploader"
 import { baseMetadata, baseViewport } from "@/config/metadata"
 import { Provider } from "@/components/providers"
 
-export default function RootLayout({
+export default function rootLayout({
   children,
 }: {
   children: React.ReactNode
