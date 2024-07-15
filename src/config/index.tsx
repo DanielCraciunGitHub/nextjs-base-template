@@ -9,14 +9,14 @@ import {
 import { NavItem, SocialLink } from "../types"
 
 export const siteConfig = {
-  email: "johndoe@gmail.com",
+  email: "johndoe@<APPNAME>.com",
   url:
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
       : `https://<APPNAME>.vercel.app`,
   navLinks: [
     {
-      name: "APP",
+      name: "<APPNAME>",
       href: "/",
     },
   ] satisfies NavItem[],
