@@ -1,5 +1,4 @@
-import { siteConfig } from "@/config"
-
+import { siteConfig } from "@/config/next-inject"
 import SocialLink from "@/components/SocialLink"
 
 const socialLinkNames = siteConfig.socialLinks.map((link) => link.name)
