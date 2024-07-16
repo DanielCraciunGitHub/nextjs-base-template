@@ -6,7 +6,7 @@ import {
   BsTwitterX,
 } from "react-icons/bs"
 
-import { NavItem, SocialLink } from "../types"
+import { NavItem, SocialLink } from "@/types/next-inject"
 
 export const siteConfig = {
   email: "johndoe@<APPNAME>.com",

@@ -35,6 +35,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# testing-template
+# // ! testing-template
 pnpm-lock.yaml
 

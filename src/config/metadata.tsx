@@ -18,7 +18,8 @@
  */
 
 import { Metadata, MetadataRoute, Viewport } from "next"
-import { siteConfig } from "@/config"
+
+import { siteConfig } from "@/config/next-inject"
 
 export const baseMetadata: Metadata = {
   title: {
