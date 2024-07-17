@@ -1,3 +1,19 @@
+/**
+ * This is the site configuration file.
+ *
+ * Information like the website url, your email, and any sort of global configuration related to
+ * your website should go here.
+ *
+ * @url This is used to prevent hardcoding urls within the code and have a consistent absolute URL
+ * for both development and production.
+ *
+ * @navLinks This is optional, and it's used to automatically add navbar items if you performed `next-inject init`
+ * This isn't available for bootstrapped projects. See src/components/Navbar to find the Navbar components.
+ *
+ * @socialLinks This is used to create social buttons on your website to redirect users to your social media. See how they
+ * look like at https://www.danielfullstack.com/blog. See src/components/SocialLink.tsx and SocialLinksArray.tsx.
+ *
+ */
 import {
   BsDiscord,
   BsGithub,
@@ -13,13 +29,17 @@ export const siteConfig = {
   url:
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
-      : `https://<NEXT-INJECT-NAME>.vercel.app`,
+      : // ! Make sure to choose the right URL for production.
+        `https://<NEXT-INJECT-NAME>.vercel.app`,
+
   navLinks: [
     {
       name: "<NEXT-INJECT-NAME>",
       href: "/",
     },
   ] satisfies NavItem[],
+
+  // ! Feel free to add/remove relevant social links from here.
   socialLinks: [
     {
       href: "https://discord.gg/C2PXBMqpuV",
