@@ -9,14 +9,14 @@ import {
 import { NavItem, SocialLink } from "@/types/next-inject"
 
 export const siteConfig = {
-  email: "johndoe@<APPNAME>.com",
+  email: "johndoe@<NEXT-INJECT-NAME>.com",
   url:
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
-      : `https://<APPNAME>.vercel.app`,
+      : `https://<NEXT-INJECT-NAME>.vercel.app`,
   navLinks: [
     {
-      name: "<APPNAME>",
+      name: "<NEXT-INJECT-NAME>",
       href: "/",
     },
   ] satisfies NavItem[],
@@ -48,5 +48,5 @@ export const siteConfig = {
     },
   ] as const satisfies SocialLink[],
   footerText:
-    "© 2024 <APPNAME>. All Rights Reserved" as const satisfies string,
+    "© 2024 <NEXT-INJECT-NAME>. All Rights Reserved" as const satisfies string,
 } as const
