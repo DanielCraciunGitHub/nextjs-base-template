@@ -14,6 +14,7 @@
  * look like at https://www.danielfullstack.com/blog. See src/components/SocialLink.tsx and SocialLinksArray.tsx.
  *
  */
+
 import {
   BsDiscord,
   BsGithub,
@@ -24,21 +25,21 @@ import {
 
 import { NavItem, SocialLink } from "@/types/next-inject"
 
+export const projectName = "<NEXT-INJECT-NAME>"
+
 export const siteConfig = {
-  email: "johndoe@<NEXT-INJECT-NAME>.com",
+  email: `johndoe@${projectName}.com`,
   url:
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
       : // ! Make sure to choose the right URL for production.
-        `https://<NEXT-INJECT-NAME>.vercel.app`,
-
+        `https://${projectName.toLowerCase().replace(" ", "-")}.vercel.app`,
   navLinks: [
     {
-      name: "<NEXT-INJECT-NAME>",
+      name: projectName,
       href: "/",
     },
   ] satisfies NavItem[],
-
   // ! Feel free to add/remove relevant social links from here.
   socialLinks: [
     {
@@ -68,5 +69,5 @@ export const siteConfig = {
     },
   ] as const satisfies SocialLink[],
   footerText:
-    "© 2024 <NEXT-INJECT-NAME>. All Rights Reserved" as const satisfies string,
+    `© 2024 ${projectName}. All Rights Reserved` as const satisfies string,
 } as const

@@ -19,17 +19,16 @@
 
 import { Metadata, MetadataRoute, Viewport } from "next"
 
-import { siteConfig } from "@/config/next-inject"
+import { projectName, siteConfig } from "@/config/next-inject"
 
 export const baseMetadata: Metadata = {
   title: {
-    default: "<NEXT-INJECT-NAME>",
-    template: `%s | <NEXT-INJECT-NAME>`,
+    default: projectName,
+    template: `%s | ${projectName}`,
   },
-  description:
-    "Boost your productivity with <NEXT-INJECT-NAME> – the all-in-one solution for [describe your product's main functionality or benefits]. Streamline your workflow with intuitive features like [mention key features]. Trusted by [mention user base or industry], <NEXT-INJECT-NAME> is designed to [solve specific problems or address needs].",
+  description: `Boost your productivity with ${projectName} – the all-in-one solution for [describe your product's main functionality or benefits]. Streamline your workflow with intuitive features like [mention key features]. Trusted by [mention user base or industry], ${projectName} is designed to [solve specific problems or address needs].`,
   keywords: [
-    "<NEXT-INJECT-NAME>",
+    projectName,
     "SaaS solution",
     "cloud-based platform",
     "productivity tools",
@@ -62,7 +61,7 @@ export const baseMetadata: Metadata = {
     "digital transformation",
     "remote work tools",
   ],
-  applicationName: "<NEXT-INJECT-NAME>",
+  applicationName: projectName,
   metadataBase: new URL(siteConfig.url),
   alternates: {
     canonical: "./",
@@ -70,11 +69,10 @@ export const baseMetadata: Metadata = {
   // ! Make sure to change the base opengraph and manifest images, located in public/images.
   openGraph: {
     title: {
-      default: "<NEXT-INJECT-NAME>",
-      template: `%s | <NEXT-INJECT-NAME>`,
+      default: projectName,
+      template: `%s | ${projectName}`,
     },
-    description:
-      "Boost your productivity with <NEXT-INJECT-NAME> – the all-in-one solution for [describe your product's main functionality or benefits]. Streamline your workflow with intuitive features like [mention key features]. Trusted by [mention user base or industry], <NEXT-INJECT-NAME> is designed to [solve specific problems or address needs].",
+    description: `Boost your productivity with ${projectName} – the all-in-one solution for [describe your product's main functionality or benefits]. Streamline your workflow with intuitive features like [mention key features]. Trusted by [mention user base or industry], ${projectName} is designed to [solve specific problems or address needs].`,
     url: "/",
     type: "website",
     images: [
@@ -90,13 +88,10 @@ export const baseMetadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: {
-      default: "<NEXT-INJECT-NAME>",
-      template: `%s | <NEXT-INJECT-NAME>`,
+      default: projectName,
+      template: `%s | ${projectName}`,
     },
-    description:
-      "Boost your productivity with <NEXT-INJECT-NAME> – the all-in-one solution for [describe your product's main functionality or benefits]. Streamline your workflow with intuitive features like [mention key features]. Trusted by [mention user base or industry], <NEXT-INJECT-NAME> is designed to [solve specific problems or address needs].",
-    // ! Change the twitter handle (e.g. @craciun_07)
-    creator: "@<NEXT-INJECT-NAME> - TWITTER",
+    description: `Boost your productivity with ${projectName} – the all-in-one solution for [describe your product's main functionality or benefits]. Streamline your workflow with intuitive features like [mention key features]. Trusted by [mention user base or industry], ${projectName} is designed to [solve specific problems or address needs].`,
     images: [
       {
         url: `${siteConfig.url}/images/next-inject-og.webp`,
@@ -126,14 +121,14 @@ export const baseViewport: Viewport = {
 export const staticMetadata = {
   ...baseMetadata,
   mainPage: {
-    title: { absolute: "<NEXT-INJECT-NAME>" },
+    title: { absolute: projectName },
     openGraph: {
       ...baseMetadata.openGraph,
-      title: { absolute: "<NEXT-INJECT-NAME>" },
+      title: { absolute: projectName },
     },
     twitter: {
       ...baseMetadata.twitter,
-      title: { absolute: "<NEXT-INJECT-NAME>" },
+      title: { absolute: projectName },
     },
   } satisfies Metadata,
   // ! Write page-specific static metadata configurations here...
@@ -166,10 +161,9 @@ export function robots(): MetadataRoute.Robots {
 // ! These are the most important manifest properties, make sure to add additional properties as you see fit.
 export function manifest(): MetadataRoute.Manifest {
   return {
-    name: "<NEXT-INJECT-NAME>",
-    short_name: "<NEXT-INJECT-NAME>",
-    description:
-      "Boost your productivity with <NEXT-INJECT-NAME> – the all-in-one solution for [describe your product's main functionality or benefits]. Streamline your workflow with intuitive features like [mention key features]. Trusted by [mention user base or industry], <NEXT-INJECT-NAME> is designed to [solve specific problems or address needs].",
+    name: projectName,
+    short_name: projectName,
+    description: `Boost your productivity with ${projectName} – the all-in-one solution for [describe your product's main functionality or benefits]. Streamline your workflow with intuitive features like [mention key features]. Trusted by [mention user base or industry], ${projectName} is designed to [solve specific problems or address needs].`,
     background_color: "#FFFFFF",
     theme_color: "#FFFFFF",
     display: "standalone",
