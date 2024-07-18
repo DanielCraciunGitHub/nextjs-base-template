@@ -11,7 +11,10 @@
     "drop": "drizzle-kit drop",
     "start": "next start",
     "lint": "next lint",
-    "format": "npx prettier --write ."
+    "format": "npx prettier --write .",
+    "generate": "drizzle-kit generate",
+    "push": "drizzle-kit push",
+    "drop": "drizzle-kit drop"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
