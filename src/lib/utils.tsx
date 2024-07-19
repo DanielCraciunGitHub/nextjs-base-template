@@ -95,3 +95,14 @@ export function sqliteTimestampNow(): string {
 
   return formattedDate
 }
+export function formatProductPrice(currency: string, price: number) {
+  const formatter = new Intl.NumberFormat(undefined, {
+    style: "currency",
+    currency: currency,
+    currencyDisplay: "narrowSymbol",
+    // You can adjust these options if needed:
+    // minimumFractionDigits: 0, // (for whole numbers)
+    // maximumFractionDigits: 0, // (to round decimals)
+  })
+  return formatter.format(price)
+}
