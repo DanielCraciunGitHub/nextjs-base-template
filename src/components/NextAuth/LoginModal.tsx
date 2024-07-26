@@ -10,16 +10,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { authenticate } from "@/app/_actions/authenticate"
 
-import { Google } from "../SVG/Google"
-import { Button } from "../ui/button"
 import { Separator } from "../ui/separator"
+import { LoginButtons } from "./LoginButtons"
 
 interface LoginModalProps {
   children: ReactNode
 }
 
+// ! A Modal version of the LoginForm.tsx component
 export const LoginModal = ({ children }: LoginModalProps) => {
   return (
     <Dialog>
@@ -32,14 +31,7 @@ export const LoginModal = ({ children }: LoginModalProps) => {
           </DialogDescription>
         </DialogHeader>
         <Separator />
-        <Button
-          variant="secondary"
-          className="space-x-2"
-          onClick={() => authenticate("google")}
-        >
-          <Google />
-          <span>Sign In with Google</span>
-        </Button>
+        <LoginButtons />
       </DialogContent>
     </Dialog>
   )

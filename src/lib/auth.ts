@@ -1,3 +1,4 @@
+import GitHub from "@auth/core/providers/github"
 import Google from "@auth/core/providers/google"
 import NextAuth, { DefaultSession } from "next-auth"
 
@@ -22,7 +23,15 @@ export const {
   signIn,
   signOut,
 } = NextAuth({
-  providers: [Google],
+  providers: [
+    Google,
+    GitHub({
+      // ! https://authjs.dev/reference/core/providers#allowdangerousemailaccountlinking
+      allowDangerousEmailAccountLinking: true,
+    }),
+    // ! Add more providers...
+    // ! Then edit the LoginButtons.tsx file with the new provider.
+  ],
   trustHost: true,
 
   callbacks: {

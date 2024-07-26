@@ -1,41 +1,30 @@
 "use client"
 
 import {
-  AlertDialog,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
-import { Button } from "@/components/ui/button"
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { Google } from "@/components/SVG/Google"
-import { authenticate } from "@/app/_actions/authenticate"
+
+import { LoginButtons } from "./LoginButtons"
 
 interface LoginFormProps {}
 
+// ! A basic login form with Oauth providers supported.
 export const LoginForm = ({}: LoginFormProps) => {
   return (
-    <AlertDialog open defaultOpen>
-      <AlertDialogContent className="flex flex-col border-muted">
-        <AlertDialogHeader>
-          <AlertDialogTitle className="text-4xl font-bold">
-            Login
-          </AlertDialogTitle>
-          <AlertDialogDescription className="text-lg">
-            Login Today!
-          </AlertDialogDescription>
-        </AlertDialogHeader>
+    <Card className="w-[400px]">
+      <CardContent className="flex flex-col border-muted">
+        <CardHeader>
+          <CardTitle className="text-4xl font-bold">Login</CardTitle>
+          <CardDescription className="text-lg">Login Today!</CardDescription>
+        </CardHeader>
         <Separator />
-        <Button
-          variant="secondary"
-          className="space-x-2"
-          onClick={() => authenticate("google")}
-        >
-          <Google />
-          <span>Sign In with Google</span>
-        </Button>
-      </AlertDialogContent>
-    </AlertDialog>
+        <LoginButtons />
+      </CardContent>
+    </Card>
   )
 }
