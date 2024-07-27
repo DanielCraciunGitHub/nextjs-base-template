@@ -39,6 +39,11 @@ export const siteConfig = {
       name: projectName,
       href: "/",
     },
+    {
+      name: "Welcome",
+      href: "/",
+    },
+    // ! Add more navbar links here...
   ] satisfies NavItem[],
   // ! Feel free to add/remove relevant social links from here.
   socialLinks: [
