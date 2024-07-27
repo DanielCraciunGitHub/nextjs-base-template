@@ -1,10 +1,17 @@
 "use server"
 
+import Stripe from "stripe"
+
 import { siteConfig } from "@/config/next-inject"
 import { stripe } from "@/lib/stripe"
 import { formatProductPrice } from "@/lib/utils"
 
-export async function getStripeUrl(priceId: string, pathname: string) {
+// ! This function will retrieve the checkout session URL, and supports both subscription and one-off payments.
+export async function getStripeUrl(
+  priceId: string,
+  pathname: string,
+  mode: Stripe.Checkout.SessionCreateParams.Mode
+) {
   try {
     const stripeSession = await stripe.checkout.sessions.create({
       // ! Specify where the user gets redirected to upon canceling and succeeding the checkout process.
@@ -12,7 +19,7 @@ export async function getStripeUrl(priceId: string, pathname: string) {
       cancel_url: `${siteConfig.url}${pathname}`,
 
       payment_method_types: ["card", "paypal"],
-      mode: "payment",
+      mode,
       line_items: [
         {
           price: priceId,
@@ -26,6 +33,7 @@ export async function getStripeUrl(priceId: string, pathname: string) {
     console.error(error)
   }
 }
+// ! This will format the actual price/cost of your product given a priceId.
 export async function getProductPrice(priceId: string) {
   try {
     if (priceId === "Undefined") {
