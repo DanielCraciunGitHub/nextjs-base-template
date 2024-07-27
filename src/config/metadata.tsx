@@ -136,12 +136,14 @@ export const staticMetadata = {
 
 export async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sitemapEntries = [
-    ...siteConfig.navLinks.map((page) => ({
-      url: siteConfig.url + page.href,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    })),
+    ...siteConfig.navLinks
+      .filter((page) => !page.href.includes("#"))
+      .map((page) => ({
+        url: siteConfig.url + page.href,
+        lastModified: new Date(),
+        changeFrequency: "weekly",
+        priority: 0.9,
+      })),
     // ! Render dynamic sitemap entries here...
   ] as MetadataRoute.Sitemap
 
