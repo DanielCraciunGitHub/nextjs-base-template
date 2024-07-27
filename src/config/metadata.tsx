@@ -26,7 +26,7 @@ export const baseMetadata: Metadata = {
     default: projectName,
     template: `%s | ${projectName}`,
   },
-  description: `Boost your productivity with ${projectName} – the all-in-one solution for [describe your product's main functionality or benefits]. Streamline your workflow with intuitive features like [mention key features]. Trusted by [mention user base or industry], ${projectName} is designed to [solve specific problems or address needs].`,
+  description: `Boost your productivity with ${projectName} – the all-in-one SaaS solution for all your problems. Streamline your workflow with intuitive features like productivity enhancement, efficiency, and more. Trusted by industries everywhere, with high ratings across the board, ${projectName} is designed to solve your specific problems and listen to your needs.`,
   keywords: [
     projectName,
     "SaaS solution",
@@ -72,7 +72,7 @@ export const baseMetadata: Metadata = {
       default: projectName,
       template: `%s | ${projectName}`,
     },
-    description: `Boost your productivity with ${projectName} – the all-in-one solution for [describe your product's main functionality or benefits]. Streamline your workflow with intuitive features like [mention key features]. Trusted by [mention user base or industry], ${projectName} is designed to [solve specific problems or address needs].`,
+    description: `Boost your productivity with ${projectName} – the all-in-one SaaS solution for all your problems. Streamline your workflow with intuitive features like productivity enhancement, efficiency, and more. Trusted by industries everywhere, with high ratings across the board, ${projectName} is designed to solve your specific problems and listen to your needs.`,
     url: "/",
     type: "website",
     images: [
@@ -91,7 +91,7 @@ export const baseMetadata: Metadata = {
       default: projectName,
       template: `%s | ${projectName}`,
     },
-    description: `Boost your productivity with ${projectName} – the all-in-one solution for [describe your product's main functionality or benefits]. Streamline your workflow with intuitive features like [mention key features]. Trusted by [mention user base or industry], ${projectName} is designed to [solve specific problems or address needs].`,
+    description: `Boost your productivity with ${projectName} – the all-in-one SaaS solution for all your problems. Streamline your workflow with intuitive features like productivity enhancement, efficiency, and more. Trusted by industries everywhere, with high ratings across the board, ${projectName} is designed to solve your specific problems and listen to your needs.`,
     images: [
       {
         url: `${siteConfig.url}/images/next-inject-og.webp`,
@@ -136,12 +136,14 @@ export const staticMetadata = {
 
 export async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sitemapEntries = [
-    ...siteConfig.navLinks.map((page) => ({
-      url: siteConfig.url + page.href,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    })),
+    ...siteConfig.navLinks
+      .filter((page) => !page.href.includes("#"))
+      .map((page) => ({
+        url: siteConfig.url + page.href,
+        lastModified: new Date(),
+        changeFrequency: "weekly",
+        priority: 0.9,
+      })),
     // ! Render dynamic sitemap entries here...
   ] as MetadataRoute.Sitemap
 
@@ -163,7 +165,7 @@ export function manifest(): MetadataRoute.Manifest {
   return {
     name: projectName,
     short_name: projectName,
-    description: `Boost your productivity with ${projectName} – the all-in-one solution for [describe your product's main functionality or benefits]. Streamline your workflow with intuitive features like [mention key features]. Trusted by [mention user base or industry], ${projectName} is designed to [solve specific problems or address needs].`,
+    description: `Boost your productivity with ${projectName} – the all-in-one SaaS solution for all your problems. Streamline your workflow with intuitive features like productivity enhancement, efficiency, and more. Trusted by industries everywhere, with high ratings across the board, ${projectName} is designed to solve your specific problems and listen to your needs.`,
     background_color: "#FFFFFF",
     theme_color: "#FFFFFF",
     display: "standalone",
