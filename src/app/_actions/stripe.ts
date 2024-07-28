@@ -18,7 +18,7 @@ export async function getStripeUrl(
       success_url: `${siteConfig.url}/dashboard`,
       cancel_url: `${siteConfig.url}${pathname}`,
 
-      payment_method_types: ["card", "paypal"],
+      payment_method_types: ["card"],
       mode,
       line_items: [
         {
