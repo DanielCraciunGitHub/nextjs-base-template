@@ -1,4 +1,4 @@
-import { integer, sqliteTableCreator, text } from "drizzle-orm/sqlite-core"
+import { integer, sqliteTableCreator, text, primaryKey } from "drizzle-orm/sqlite-core"
 import { ulid } from "ulid"
 
 // ! Feel free to rename `project1` to whatever you like
