@@ -26,17 +26,6 @@ export const Footer = () => {
             <div className="text-center text-sm text-foreground/50">
               {siteConfig.footerText}
             </div>
-            <div className="pt-2">
-              <Link
-                href="/plugins"
-                rel="noopener noreferrer"
-                className={buttonVariants({
-                  variant: "outline",
-                })}
-              >
-                Start Injecting <BsLightningChargeFill fill="green" />
-              </Link>
-            </div>
           </div>
           <div className="-mb-10 mt-10 flex flex-grow flex-wrap text-center md:mt-0 md:pl-24 md:text-left lg:pl-48">
             <div className="w-full px-4 md:w-1/2 lg:w-1/3">
