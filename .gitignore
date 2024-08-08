@@ -38,3 +38,5 @@ next-env.d.ts
 # // ! testing-template
 pnpm-lock.yaml
 
+# sanity
+.sanity
