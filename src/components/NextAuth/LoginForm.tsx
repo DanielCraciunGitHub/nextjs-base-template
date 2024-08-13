@@ -7,23 +7,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
 
-import { LoginButtons } from "./LoginButtons"
+import { SocialProviders } from "./SocialProviders"
 
 interface LoginFormProps {}
 
-// ! A basic login form with Oauth providers supported.
 export const LoginForm = ({}: LoginFormProps) => {
   return (
     <Card className="w-[400px]">
-      <CardContent className="flex flex-col border-muted">
+      <CardContent className="flex flex-col space-y-2 border-muted">
         <CardHeader>
           <CardTitle className="text-4xl font-bold">Login</CardTitle>
-          <CardDescription className="text-lg">Login Today!</CardDescription>
+          <CardDescription>Login today</CardDescription>
         </CardHeader>
-        <Separator />
-        <LoginButtons />
+
+        <SocialProviders />
       </CardContent>
     </Card>
   )

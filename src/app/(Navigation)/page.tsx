@@ -1,7 +1,5 @@
 import { projectName } from "@/config/next-inject"
-import { auth } from "@/lib/auth"
-import { LoginForm } from "@/components/NextAuth/LoginForm"
-import { LogoutButton } from "@/components/NextAuth/LogoutButton"
+import { DemoAuth } from "@/components/NextAuth/Demo"
 
 export default async function page() {
   return (
@@ -13,9 +11,4 @@ export default async function page() {
       <DemoAuth />
     </section>
   )
-}
-async function DemoAuth() {
-  const session = await auth()
-
-  return session ? <LogoutButton session={session} /> : <LoginForm />
 }

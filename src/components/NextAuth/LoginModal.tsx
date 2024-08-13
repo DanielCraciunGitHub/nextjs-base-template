@@ -11,27 +11,23 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 
-import { Separator } from "../ui/separator"
-import { LoginButtons } from "./LoginButtons"
+import { SocialProviders } from "./SocialProviders"
 
 interface LoginModalProps {
   children: ReactNode
 }
 
-// ! A Modal version of the LoginForm.tsx component
 export const LoginModal = ({ children }: LoginModalProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="flex flex-col border-muted">
+      <DialogContent className="flex flex-col space-y-0 border-muted">
         <DialogHeader>
           <DialogTitle className="text-4xl font-bold">Login</DialogTitle>
-          <DialogDescription className="text-lg">
-            Login Today!
-          </DialogDescription>
+          <DialogDescription>Login today</DialogDescription>
         </DialogHeader>
-        <Separator />
-        <LoginButtons />
+
+        <SocialProviders />
       </DialogContent>
     </Dialog>
   )
