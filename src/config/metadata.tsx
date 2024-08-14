@@ -21,6 +21,7 @@ import { Metadata, MetadataRoute, Viewport } from "next"
 
 import { projectName, siteConfig } from "@/config/next-inject"
 
+// ! Here you define metadata that should be available on all your pages.
 export const baseMetadata: Metadata = {
   title: {
     default: projectName,
@@ -118,6 +119,14 @@ export const baseViewport: Viewport = {
   colorScheme: "dark light",
 }
 
+// ! Here is where you extend the `baseMetadata` object defined above, and make it specific for any pages you add.
+// ! Make sure to export the metadata object in your page.tsx files as follows:
+
+/**
+  export const metadata: Metadata = {
+  ...staticMetadata.mainPage,
+  }
+*/
 export const staticMetadata = {
   ...baseMetadata,
   mainPage: {
@@ -134,8 +143,10 @@ export const staticMetadata = {
   // ! Write page-specific static metadata configurations here...
 }
 
+// ! Here is the sitemap, make sure to add any sitemap links into this array.
 export async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sitemapEntries = [
+    // ! See more about `siteConfig` in config/next-inject.tsx
     ...siteConfig.navLinks
       .filter((page) => !page.href.includes("#"))
       .map((page) => ({
