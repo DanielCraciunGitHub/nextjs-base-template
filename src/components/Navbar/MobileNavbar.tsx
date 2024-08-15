@@ -1,13 +1,13 @@
 import { Menu } from "lucide-react"
 import { BsLightningChargeFill } from "react-icons/bs"
 
-import { siteConfig } from "@/config/next-inject"
 import {
   Sheet,
   SheetClose,
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { siteConfig } from "@/config/next-inject"
 
 import { DarkModeButton } from "../Buttons/DarkModeButton"
 import { NavItem } from "./NavItem"
@@ -23,7 +23,7 @@ export function MobileNavbar() {
         text={mainItem.name}
         className="text-2xl font-bold"
         tabIndex={0}
-        icon={<BsLightningChargeFill fill={"green"} size={20} />}
+        icon={<BsLightningChargeFill fill="green" size={20} />}
       />
       <Sheet>
         <div className="flex w-full justify-end">
@@ -40,7 +40,7 @@ export function MobileNavbar() {
                   <NavItem
                     page={item.href}
                     text={item.name}
-                    className="mb-2 mt-2 flex self-center"
+                    className="my-2 flex self-center"
                   />
                 </SheetClose>
               </div>

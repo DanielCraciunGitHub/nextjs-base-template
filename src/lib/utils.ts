@@ -1,4 +1,4 @@
-import { clsx, type ClassValue } from "clsx"
+import { type ClassValue, clsx } from "clsx"
 import { formatDistanceToNowStrict } from "date-fns"
 import locale from "date-fns/locale/en-GB"
 import { twMerge } from "tailwind-merge"
@@ -58,6 +58,7 @@ function formatTimeDistance(
   count: number,
   options?: any
 ): string {
+  // eslint-disable-next-line no-param-reassign
   options = options || {}
 
   const result = formatTimeDistanceLocale[
@@ -66,11 +67,10 @@ function formatTimeDistance(
 
   if (options.addSuffix) {
     if (options.comparison > 0) {
-      return "in " + result
-    } else {
-      if (result === "just now") return result
-      return result + " ago"
+      return `in ${result}`
     }
+    if (result === "just now") return result
+    return `${result} ago`
   }
 
   return result

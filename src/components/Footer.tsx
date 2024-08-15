@@ -4,30 +4,29 @@ import { BsLightningChargeFill } from "react-icons/bs"
 import { projectName, siteConfig } from "@/config/next-inject"
 
 import { NavItem } from "./Navbar/NavItem"
-import { buttonVariants } from "./ui/button"
 
 // ! A beautiful mobile friendly footer to start out with.
 export const Footer = () => {
-  const [mainItem, ...navItems] = siteConfig.navLinks
+  const [_, ...navItems] = siteConfig.navLinks
 
   return (
     <footer className="z-20 border-t border-muted p-4">
-      <div className="mx-auto max-w-7xl px-8 py-24 font-mono">
+      <div className="mx-auto max-w-7xl px-8 py-24">
         <div className="flex flex-col flex-wrap md:flex-row md:flex-nowrap lg:items-start">
-          <div className="mx-auto w-80 max-w-full flex-shrink-0 space-y-1 text-center md:mx-0 md:text-left">
+          <div className="mx-auto w-80 max-w-full shrink-0 space-y-1 text-center md:mx-0 md:text-left">
             <NavItem
               key={projectName}
-              page={"/"}
+              page="/"
               text={projectName}
               className="text-xl font-bold"
               tabIndex={0}
-              icon={<BsLightningChargeFill fill={"green"} size={20} />}
+              icon={<BsLightningChargeFill fill="green" size={20} />}
             />
             <div className="text-center text-sm text-foreground/50">
               {siteConfig.footerText}
             </div>
           </div>
-          <div className="-mb-10 mt-10 flex flex-grow flex-wrap text-center md:mt-0 md:pl-24 md:text-left lg:pl-48">
+          <div className="-mb-10 mt-10 flex grow flex-wrap text-center md:mt-0 md:pl-24 md:text-left lg:pl-48">
             <div className="w-full px-4 md:w-1/2 lg:w-1/3">
               <div className="text-bold text-xl text-muted-foreground">
                 Links
