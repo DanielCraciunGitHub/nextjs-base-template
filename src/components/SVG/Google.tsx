@@ -1,5 +1,8 @@
 interface GoogleProps {}
 
+/**
+ * The Colored Google Logo in SVG format
+ */
 export const Google = ({}: GoogleProps) => {
   return (
     <svg

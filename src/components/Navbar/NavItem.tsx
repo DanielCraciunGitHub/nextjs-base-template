@@ -13,7 +13,7 @@ interface NavItemProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   icon?: React.ReactNode
 }
 
-// ! An aesthetically rendered nav bar item.
+// ! An aesthetic navbar item.
 export function NavItem(props: NavItemProps) {
   const segment = useSelectedLayoutSegment()
 

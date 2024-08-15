@@ -12,6 +12,7 @@ export const MainNavbar = () => {
   return (
     <div className="hidden bg-background md:flex md:justify-center md:p-3">
       <div className="md:flex md:w-2/3 md:justify-between">
+        {/* Left side */}
         <div className="flex items-center">
           <NavItem
             key={firstLink.name}
@@ -22,6 +23,7 @@ export const MainNavbar = () => {
             icon={<BsLightningChargeFill fill="green" size={20} />}
           />
         </div>
+        {/* Right side - The rest of the navigation links */}
         <div className="flex divide-x-2 divide-primary">
           {rest.reverse().map((item) => (
             <span key={item.name}>

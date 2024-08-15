@@ -19,6 +19,21 @@ interface KeyCombination {
   altKey?: boolean
 }
 
+/**
+ * Apply a keybind to an interactive element of your choice.
+ *
+ * @example ```
+ * const buttonRef = useRef<HTMLButtonElement>(null)
+ *
+ * useKeybind(buttonRef, { key: "l", ctrlKey: true, shiftKey: true }, () =>
+ *  buttonRef.current?.click()
+ * )
+ * ```
+ *
+ * @param ref
+ * @param keyCombination
+ * @param callback
+ */
 export const useKeybind = (
   ref: RefObject<FocusableElement>,
   keyCombination: KeyCombination,
