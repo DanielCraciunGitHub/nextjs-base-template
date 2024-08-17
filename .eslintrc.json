@@ -51,7 +51,7 @@
           }
         ], // Avoid conflict rule between Prettier and Airbnb Eslint
         "tailwindcss/no-custom-classname": ["off"],
-        "eslint-plugin-import/no-extraneous-dependencies": "warn",
+        "import/no-extraneous-dependencies": "warn",
         "no-param-reassign": "off",
         "consistent-return": "off",
         "no-empty-pattern": "off",
