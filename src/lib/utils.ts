@@ -1,16 +1,28 @@
-import { clsx, type ClassValue } from "clsx"
-import { formatDistanceToNowStrict } from "date-fns"
-import locale from "date-fns/locale/en-GB"
+import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+/**
+ * @example ```
+ * nameToPath("Daniel C") => "daniel_c"
+ * ```
+ * @param name
+ * @returns
+ */
 export function nameToPath(name: string): string {
   return `/${name.toLowerCase().replaceAll(" ", "_")}`
 }
 
+/**
+ * @example ```
+ * pathToName("daniel_c") => "Daniel C"
+ * ```
+ * @param name
+ * @returns
+ */
 export function pathToName(path: string | undefined): string | undefined {
   const cleanedPath = path?.replace(/^\//, "")
 
@@ -24,6 +36,13 @@ export function pathToName(path: string | undefined): string | undefined {
   return capitalizedWords?.join(" ")
 }
 
+/**
+ * @example ```
+ * getInitials("Daniel Craciun") => "DC"
+ * ```
+ * @param name
+ * @returns
+ */
 export function getInitials(name?: string | null): string | undefined {
   // Split the name into words
   const words = name?.trim().split(/\s+/)
@@ -32,66 +51,4 @@ export function getInitials(name?: string | null): string | undefined {
   const initials = words?.map((word) => word.charAt(0).toUpperCase()).join("")
 
   return initials
-}
-
-const formatTimeDistanceLocale = {
-  lessThanXSeconds: "just now",
-  xSeconds: "just now",
-  halfAMinute: "just now",
-  lessThanXMinutes: "{{count}}m",
-  xMinutes: "{{count}}m",
-  aboutXHours: "{{count}}h",
-  xHours: "{{count}}h",
-  xDays: "{{count}}d",
-  aboutXWeeks: "{{count}}w",
-  xWeeks: "{{count}}w",
-  aboutXMonths: "{{count}}m",
-  xMonths: "{{count}}m",
-  aboutXYears: "{{count}}y",
-  xYears: "{{count}}y",
-  overXYears: "{{count}}y",
-  almostXYears: "{{count}}y",
-}
-
-function formatTimeDistance(
-  token: string,
-  count: number,
-  options?: any
-): string {
-  options = options || {}
-
-  const result = formatTimeDistanceLocale[
-    token as keyof typeof formatTimeDistanceLocale
-  ].replace("{{count}}", count.toString())
-
-  if (options.addSuffix) {
-    if (options.comparison > 0) {
-      return "in " + result
-    } else {
-      if (result === "just now") return result
-      return result + " ago"
-    }
-  }
-
-  return result
-}
-
-export function formatTimeToNow(date: Date): string {
-  return formatDistanceToNowStrict(date, {
-    addSuffix: true,
-    locale: {
-      ...locale,
-      formatDistance: formatTimeDistance,
-    },
-  })
-}
-
-export function sqliteTimestampNow(): string {
-  // Get the current date
-  const currentDate = new Date()
-
-  // Format the date as "YYYY-MM-DD HH:MM:SS"
-  const formattedDate = currentDate.toISOString().slice(0, 19).replace("T", " ")
-
-  return formattedDate
 }
