@@ -1,5 +1,5 @@
-import { projectName } from "@/config/next-inject"
 import { BlogPosts } from "@/components/Sanity/BlogPosts"
+import { projectName } from "@/config/next-inject"
 
 export default async function page() {
   return (
