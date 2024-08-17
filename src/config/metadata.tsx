@@ -17,7 +17,7 @@
  * Here are the docs: https://www.npmjs.com/package/next-seo#json-ld
  */
 
-import { Metadata, MetadataRoute, Viewport } from "next"
+import type { Metadata, MetadataRoute, Viewport } from "next"
 
 import { projectName, siteConfig } from "@/config/next-inject"
 

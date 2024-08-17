@@ -23,7 +23,7 @@ import {
   BsTwitterX,
 } from "react-icons/bs"
 
-import { NavItem, SocialLink } from "@/types/next-inject"
+import type { NavItem, SocialLink } from "@/types/next-inject"
 
 export const projectName = "<NEXT-INJECT-NAME>"
 
@@ -32,14 +32,19 @@ export const siteConfig = {
   url:
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
-      : // ! Make sure to choose the right URL for production.
+      : // ! Make sure to choose the correct URL for production.
         `https://${projectName.toLowerCase().replace(" ", "-")}.vercel.app`,
   navLinks: [
     {
       name: projectName,
       href: "/",
     },
-  ] satisfies NavItem[],
+    {
+      name: "Welcome",
+      href: "/",
+    },
+    // ! Add more navbar links here...
+  ] as const satisfies NavItem[],
   // ! Feel free to add/remove relevant social links from here.
   socialLinks: [
     {
