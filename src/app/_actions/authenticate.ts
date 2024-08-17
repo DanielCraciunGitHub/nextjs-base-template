@@ -1,6 +1,6 @@
 "use server"
 
-import { BuiltInProviderType } from "@auth/core/providers"
+import type { BuiltInProviderType } from "@auth/core/providers"
 
 import { auth, signIn, signOut } from "@/lib/auth"
 

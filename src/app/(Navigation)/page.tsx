@@ -1,5 +1,5 @@
-import { projectName } from "@/config/next-inject"
 import { DemoAuth } from "@/components/NextAuth/Demo"
+import { projectName } from "@/config/next-inject"
 
 export default async function page() {
   return (

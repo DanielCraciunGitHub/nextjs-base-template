@@ -1,6 +1,7 @@
 import GitHub from "@auth/core/providers/github"
 import Google from "@auth/core/providers/google"
-import NextAuth, { DefaultSession } from "next-auth"
+import type { DefaultSession } from "next-auth"
+import NextAuth from "next-auth"
 
 declare module "@auth/core/types" {
   interface Session extends DefaultSession {

@@ -1,8 +1,8 @@
-import { BsGithub, BsGitlab } from "react-icons/bs"
+import { BsGithub } from "react-icons/bs"
 
-import { Button } from "@/components/ui/button"
-import { Google } from "@/components/SVG/Google"
 import { authenticate } from "@/app/_actions/authenticate"
+import { Google } from "@/components/SVG/Google"
+import { Button } from "@/components/ui/button"
 
 interface SocialProvidersProps {}
 
