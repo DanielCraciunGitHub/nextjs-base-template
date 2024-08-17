@@ -6,13 +6,13 @@ import { DarkModeButton } from "../Buttons/DarkModeButton"
 import { NavItem } from "./NavItem"
 
 export const MainNavbar = () => {
-  // ! This will provide a 1-n-1 navbar layout, where n is a variable number of navbar links.
+  // ! This will provide a 1-n navbar layout, where n is a variable number of navbar links.
   const [firstLink, ...rest] = siteConfig.navLinks
-  const [lastLink, ...restLinks] = rest.reverse()
 
   return (
     <div className="hidden bg-background md:flex md:justify-center md:p-3">
       <div className="md:flex md:w-2/3 md:justify-between">
+        {/* Left side */}
         <div className="flex items-center">
           <NavItem
             key={firstLink.name}
@@ -20,30 +20,21 @@ export const MainNavbar = () => {
             text={firstLink.name}
             className="text-xl font-bold"
             tabIndex={0}
-            icon={<BsLightningChargeFill fill={"green"} size={20} />}
+            icon={<BsLightningChargeFill fill="green" size={20} />}
           />
         </div>
+        {/* Right side - The rest of the navigation links */}
         <div className="flex divide-x-2 divide-primary">
-          {restLinks.reverse().map((item) => (
+          {rest.reverse().map((item) => (
             <span key={item.name}>
               <NavItem
                 page={item.href}
                 text={item.name}
-                className="ml-2 mr-2"
+                className="mx-2"
                 tabIndex={0}
               />
             </span>
           ))}
-        </div>
-        <div className="flex divide-x-2 divide-primary">
-          <span key={lastLink.name}>
-            <NavItem
-              page={lastLink.href}
-              text={lastLink.name}
-              className="ml-2 mr-2"
-              tabIndex={0}
-            />
-          </span>
         </div>
       </div>
       <div className="absolute right-3 top-3">
