@@ -1,8 +1,8 @@
 import Link from "next/link"
-import type { SocialLink } from "@/types"
 
-import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import type { SocialLink } from "@/types/next-inject"
 
 interface SocialLinkProps
   extends SocialLink,
@@ -11,6 +11,7 @@ interface SocialLinkProps
   href: string
 }
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export default function SocialLink({
   href,
   icon,
