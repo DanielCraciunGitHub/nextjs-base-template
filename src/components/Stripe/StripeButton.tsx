@@ -1,11 +1,12 @@
 "use client"
 
-import { ReactNode } from "react"
 import { usePathname, useRouter } from "next/navigation"
-import Stripe from "stripe"
+import type { ReactNode } from "react"
+import type Stripe from "stripe"
 
-import { Button, ButtonProps } from "@/components/ui/button"
 import { getStripeUrl } from "@/app/_actions/stripe"
+import type { ButtonProps } from "@/components/ui/button"
+import { Button } from "@/components/ui/button"
 
 interface StripeButtonProps extends ButtonProps {
   children: ReactNode

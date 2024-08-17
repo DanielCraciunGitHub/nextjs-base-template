@@ -1,7 +1,7 @@
 import { Moon, Sun } from "lucide-react"
 
-import { prices } from "@/config/stripe"
 import { getProductPrice } from "@/app/_actions/stripe"
+import { prices } from "@/config/stripe"
 
 import { OneOffCard } from "./OneOffCard"
 import SubscriptionCard from "./SubscriptionCard"

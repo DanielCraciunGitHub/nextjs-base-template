@@ -1,5 +1,5 @@
 import { headers } from "next/headers"
-import Stripe from "stripe"
+import type Stripe from "stripe"
 
 import { stripe } from "@/lib/stripe"
 

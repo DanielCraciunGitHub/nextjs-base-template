@@ -1,5 +1,5 @@
-import { projectName } from "@/config/next-inject"
 import { DemoOneOff, DemoSubscription } from "@/components/Stripe/StripeDemo"
+import { projectName } from "@/config/next-inject"
 
 export default async function page() {
   return (

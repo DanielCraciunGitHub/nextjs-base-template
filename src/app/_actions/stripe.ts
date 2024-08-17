@@ -1,6 +1,6 @@
 "use server"
 
-import Stripe from "stripe"
+import type Stripe from "stripe"
 
 import { siteConfig } from "@/config/next-inject"
 import { stripe } from "@/lib/stripe"
@@ -38,11 +38,10 @@ export async function getProductPrice(priceId: string) {
   try {
     if (priceId === "Undefined") {
       return undefined
-    } else {
-      const price = await stripe.prices.retrieve(priceId)
-
-      return formatProductPrice(price.currency, price.unit_amount! / 100)
     }
+    const price = await stripe.prices.retrieve(priceId)
+
+    return formatProductPrice(price.currency, price.unit_amount! / 100)
   } catch (error) {
     return undefined
   }

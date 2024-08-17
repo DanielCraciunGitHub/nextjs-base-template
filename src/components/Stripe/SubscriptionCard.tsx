@@ -1,10 +1,11 @@
 "use client"
 
-import { HTMLAttributes } from "react"
-import { cva, VariantProps } from "class-variance-authority"
+import type { VariantProps } from "class-variance-authority"
+import { cva } from "class-variance-authority"
 import { CheckCircle } from "lucide-react"
+import type { HTMLAttributes } from "react"
 
-import { cn } from "@/lib/utils"
+import StripeButton from "@/components/Stripe/StripeButton"
 import {
   Card,
   CardContent,
@@ -12,17 +13,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import StripeButton from "@/components/Stripe/StripeButton"
+import { cn } from "@/lib/utils"
 
 const subCardVariants = cva("", {
   variants: {
     theme: {
       green:
-        "dark:border-green-500 border-green-500 bg-green-500 dark:bg-green-500",
+        "border-green-500 bg-green-500 dark:border-green-500 dark:bg-green-500",
       orange:
-        "border-orange-500 dark:border-orange-500 bg-orange-500 dark:bg-orange-500",
-      red: "border-red-500 dark:border-red-500 bg-red-500 dark:bg-red-500",
-      blue: "border-blue-500 dark:border-blue-500 bg-blue-500 dark:bg-blue-500",
+        "border-orange-500 bg-orange-500 dark:border-orange-500 dark:bg-orange-500",
+      red: "border-red-500 bg-red-500 dark:border-red-500 dark:bg-red-500",
+      blue: "border-blue-500 bg-blue-500 dark:border-blue-500 dark:bg-blue-500",
     },
     text: {
       green: "text-green-500",
