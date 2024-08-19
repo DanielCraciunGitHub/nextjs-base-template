@@ -1,7 +1,7 @@
 import { headers } from "next/headers"
 import type Stripe from "stripe"
 
-import { stripe } from "@/lib/stripe"
+import { isLiveMode, stripe } from "@/lib/stripe"
 
 export const dynamic = "force-dynamic"
 
@@ -15,9 +15,9 @@ export async function POST(req: Request) {
     event = stripe.webhooks.constructEvent(
       body,
       signature,
-      process.env.NODE_ENV === "development"
-        ? process.env.STRIPE_WEBHOOK_TEST_SECRET!
-        : process.env.STRIPE_WEBHOOK_SECRET!
+      isLiveMode
+        ? process.env.STRIPE_WEBHOOK_SECRET!
+        : process.env.STRIPE_WEBHOOK_TEST_SECRET!
     )
   } catch (error: any) {
     return new Response(`Webhook Error: ${error.message}`, { status: 400 })
@@ -25,38 +25,50 @@ export async function POST(req: Request) {
 
   const session = event.data.object as Stripe.Checkout.Session
 
-  if (event.type === "checkout.session.completed") {
-    if (session.mode === "subscription") {
+  switch (event.type) {
+    // ? HANDLE ONE OFF PAYMENTS HERE...
+    case "checkout.session.completed": {
+      if (session.mode === "payment") {
+        const { data } = await stripe.checkout.sessions.listLineItems(
+          session.id
+        )
+        const paymentIntent = session.payment_intent!.toString()
+
+        // ! Retrieve an array of all the price Ids and product names to potentially store in database.
+        const productPromises = data.map(async (item) => {
+          const priceId = item.price!.id
+          const { name: productName } = await stripe.products.retrieve(
+            item.price!.product.toString()
+          )
+          return { priceId, productName }
+        })
+        const productData = await Promise.all(productPromises)
+
+        // ! Retrieve customer details for purchase confirmations for database storage.
+        const email = session.customer_details!.email!
+        const name = session.customer_details!.name!
+      }
+
+      break
+    }
+
+    // ? HANDLE SUBSCRIPTION CREATION HERE...
+    case "customer.subscription.created": {
       const subscription = await stripe.subscriptions.retrieve(
         session.subscription as string
       )
-      // ! Here you would update the subscription information to a database...
-    } else if (session.mode === "payment") {
-      // ! Handle one off payments here when a checkout session is completed...
-      const { data } = await stripe.checkout.sessions.listLineItems(session.id)
-
-      const { name: productName } = await stripe.products.retrieve(
-        data[0].price!.product.toString()
-      )
-      const priceId = data[0].price!.id
-
-      const paymentIntent = session.payment_intent!.toString()
-
-      console.log({
-        paymentIntent,
-        priceId,
-        productName,
-      })
+      break
     }
-  }
-
-  if (event.type === "invoice.payment_succeeded") {
-    if (session.mode === "subscription") {
+    // ? HANDLE RECURRING SUBSCRIPTION PAYMENTS...
+    case "invoice.payment_succeeded": {
       const subscription = await stripe.subscriptions.retrieve(
         session.subscription as string
       )
-      // ! Use this event to perform actions when a subscription is renewed (e.g. update period end at the end of each month)
+      break
     }
+    default:
+      break
   }
+
   return new Response(null, { status: 200 })
 }

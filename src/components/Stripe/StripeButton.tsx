@@ -10,14 +10,14 @@ import { Button } from "@/components/ui/button"
 
 interface StripeButtonProps extends ButtonProps {
   children: ReactNode
-  priceId: string
+  priceIds: string[]
   mode: Stripe.Checkout.SessionCreateParams.Mode
 }
 
 const StripeButton = ({
   className,
   children,
-  priceId,
+  priceIds,
   mode,
   ...restProps
 }: StripeButtonProps) => {
@@ -25,7 +25,7 @@ const StripeButton = ({
   const pathname = usePathname()
 
   const onSubmit = async () => {
-    const url = await getStripeUrl(priceId, pathname, mode)
+    const url = await getStripeUrl(priceIds, pathname, mode)
     if (url) {
       router.push(url)
     } else {

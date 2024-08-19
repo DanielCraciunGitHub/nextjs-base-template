@@ -39,7 +39,7 @@ interface SubscriptionCardProps
   title: string
   features: string[]
   price: string
-  priceId: string
+  priceIds: string[]
   icon: React.ReactNode
 }
 
@@ -49,7 +49,7 @@ const SubscriptionCard = ({
   price,
   icon,
   theme,
-  priceId,
+  priceIds,
   text = theme,
 }: SubscriptionCardProps) => {
   return (
@@ -77,7 +77,7 @@ const SubscriptionCard = ({
         <StripeButton
           mode="subscription"
           className={subCardVariants({ theme })}
-          priceId={priceId}
+          priceIds={priceIds}
         >
           Purchase
         </StripeButton>

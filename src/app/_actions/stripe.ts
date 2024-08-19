@@ -8,29 +8,27 @@ import { formatProductPrice } from "@/lib/utils"
 
 // ! This function will retrieve the checkout session URL, and supports both subscription and one-off payments.
 export async function getStripeUrl(
-  priceId: string,
+  priceIds: string[],
   pathname: string,
   mode: Stripe.Checkout.SessionCreateParams.Mode
 ) {
   try {
     const stripeSession = await stripe.checkout.sessions.create({
       // ! Specify where the user gets redirected to upon canceling and succeeding the checkout process.
-      success_url: `${siteConfig.url}/dashboard`,
+      success_url: `${siteConfig.url}`,
       cancel_url: `${siteConfig.url}${pathname}`,
 
       payment_method_types: ["card"],
       mode,
-      line_items: [
-        {
-          price: priceId,
-          quantity: 1,
-        },
-      ],
+      line_items: priceIds.map((priceId) => ({
+        price: priceId,
+        quantity: 1,
+      })),
       allow_promotion_codes: true,
     })
     return stripeSession.url!
   } catch (error) {
-    console.error(error)
+    return ""
   }
 }
 // ! This will format the actual price/cost of your product given a priceId.

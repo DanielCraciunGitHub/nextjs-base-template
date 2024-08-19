@@ -1,7 +1,7 @@
 import { Moon, Sun } from "lucide-react"
 
 import { getProductPrice } from "@/app/_actions/stripe"
-import { prices } from "@/config/stripe"
+import { prices } from "@/lib/stripe"
 
 import { OneOffCard } from "./OneOffCard"
 import SubscriptionCard from "./SubscriptionCard"
@@ -21,7 +21,7 @@ export async function DemoOneOff() {
         "Premium Resources",
       ]}
       price={price}
-      priceId={priceId}
+      priceIds={[priceId]}
     />
   )
 }
@@ -40,7 +40,15 @@ export async function DemoSubscription() {
         "Premium Resources",
       ]}
       price={price}
-      priceId={priceId}
+      priceIds={[priceId]}
     />
+  )
+}
+export async function Demo() {
+  return (
+    <div id="#Demo" className="flex space-x-2">
+      <DemoOneOff />
+      <DemoSubscription />
+    </div>
   )
 }

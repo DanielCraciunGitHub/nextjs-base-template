@@ -39,7 +39,7 @@ interface SubscriptionCardProps
   title: string
   features: string[]
   price: string
-  priceId: string
+  priceIds: string[]
   icon: React.ReactNode
 }
 
@@ -49,7 +49,7 @@ export const OneOffCard = ({
   price,
   icon,
   theme,
-  priceId,
+  priceIds,
   text = theme,
 }: SubscriptionCardProps) => {
   return (
@@ -78,7 +78,7 @@ export const OneOffCard = ({
         <StripeButton
           mode="payment"
           className={oneOffCardVariants({ theme })}
-          priceId={priceId}
+          priceIds={priceIds}
         >
           Purchase
         </StripeButton>
