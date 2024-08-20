@@ -10,7 +10,8 @@
       "error",
       {
         "singleQuote": true,
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "semi": false
       }
     ] // Avoid conflict rule between Prettier and Airbnb Eslint
   },
