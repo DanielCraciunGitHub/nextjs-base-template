@@ -7,6 +7,8 @@ import { NavItem } from "./NavItem"
 
 // ! Disable this to remove the green separator lines in the navbar.
 const divider = true
+// ! Enable this to add a darkmode button in the navbar.
+const darkModeButton = false
 
 interface MainNavbarProps {
   type?: "1-n-1" | "1-n"
@@ -48,9 +50,11 @@ const Navbar1N = () => {
           ))}
         </div>
       </div>
-      <div className="absolute right-3 top-3">
-        <DarkModeButton />
-      </div>
+      {darkModeButton ? (
+        <div className="absolute right-3 top-3">
+          <DarkModeButton />
+        </div>
+      ) : null}
     </div>
   )
 }

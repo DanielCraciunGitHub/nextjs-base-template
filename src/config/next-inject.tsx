@@ -40,6 +40,7 @@ export const siteConfig = {
       name: projectName,
       href: "/",
     },
+    // SP
     {
       name: "Demo",
       href: "/#demo",
@@ -56,6 +57,7 @@ export const siteConfig = {
       name: "FAQ",
       href: "/#faq",
     },
+    // EP
     {
       name: "Welcome",
       href: "/",
