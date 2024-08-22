@@ -17,7 +17,7 @@ export function MobileNavbar() {
   const [mainItem, ...navItems] = siteConfig.navLinks
 
   return (
-    <div className="flex items-center p-4 md:hidden">
+    <div className="flex items-center p-4 lg:hidden">
       <NavItem
         key={mainItem.name}
         page={mainItem.href}
