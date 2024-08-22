@@ -1,17 +1,18 @@
+import { Benefits } from "./Benefits"
 import { Demo } from "./Demo"
 import { FAQ } from "./FAQ"
-import { Benefits } from "./Features"
 import { HeroSection } from "./HeroSection"
 import { LandingCTA } from "./LandingCTA"
+import { Pricing } from "./Pricing"
 
-interface LandingPageProps {}
-
-const LandingPage = ({}: LandingPageProps) => {
+const LandingPage = () => {
   return (
     <div className="mx-auto flex w-full flex-col">
       <HeroSection />
 
       <Demo />
+
+      <Pricing />
 
       <Benefits />
 

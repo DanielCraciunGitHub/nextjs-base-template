@@ -52,6 +52,10 @@ export const siteConfig = {
       href: "/#benefits",
     },
     {
+      name: "Pricing",
+      href: "/#pricing",
+    },
+    {
       name: "Demo",
       href: "/#demo",
     },

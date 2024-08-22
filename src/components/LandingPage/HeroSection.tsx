@@ -2,9 +2,7 @@ import Image from "next/image"
 
 import { MainCTA } from "./CTA"
 
-interface HeroSectionProps {}
-
-export const HeroSection = async ({}: HeroSectionProps) => {
+export const HeroSection = async () => {
   return (
     <div className="flex flex-col">
       <section className="mx-auto my-24 flex max-w-7xl flex-col items-center justify-center gap-16 p-8 lg:flex-row lg:items-start lg:gap-20 lg:py-20">
@@ -23,11 +21,19 @@ export const HeroSection = async ({}: HeroSectionProps) => {
             our powerful Next.js CLI.
           </div>
           {/* CTA */}
-          <MainCTA href="/" className="h-12 rounded-md px-16" />
+          <MainCTA
+            href="/"
+            className="h-12 w-1/2 self-center rounded-md px-16 lg:self-start"
+          />
         </div>
         {/* Right side - For Image */}
-        <div className="flex w-full flex-col md:w-3/4">
-          <Image src="" width={400} height={400} alt="next inject" />
+        <div className="hidden w-full flex-col lg:block lg:w-3/4">
+          <Image
+            src="/images/next-inject-transparent.webp"
+            width={400}
+            height={400}
+            alt="next inject"
+          />
         </div>
       </section>
     </div>

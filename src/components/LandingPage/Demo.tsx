@@ -1,14 +1,11 @@
 "use client"
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import YouTube from "react-youtube"
 
 import { CurlyArrow } from "@/components/SVG/Arrows"
 import { projectName } from "@/config/next-inject"
 
-interface DemoProps {}
-
-export const Demo = ({}: DemoProps) => {
+export const Demo = () => {
   return (
     <div id="demo" className="w-full bg-gray-500 dark:bg-gray-800/30">
       <div className="relative mx-auto my-44 flex max-w-5xl flex-col items-center space-y-6">

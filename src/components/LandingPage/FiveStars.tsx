@@ -1,11 +1,19 @@
 import { Star } from "@/components/SVG/Star"
 
-interface FiveStarsProps {}
+interface StarsProps {
+  howMany?: number
+}
 
-export const FiveStars = ({}: FiveStarsProps) => {
+/**
+ * `Stars` component renders a row of star icons, typically used to display a rating.
+ *
+ * @component
+ * @param howMany - Optional number of stars to display, defaults to 5 if not provided.
+ */
+export const Stars = ({ howMany = 5 }: StarsProps) => {
   return (
     <div className="flex">
-      {Array.from({ length: 5 }, (_, i) => (
+      {Array.from({ length: howMany }, (_, i) => (
         <Star key={i} />
       ))}
     </div>

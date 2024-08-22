@@ -2,21 +2,21 @@ import { DollarSign, Lock } from "lucide-react"
 import Link from "next/link"
 import { BsLightningChargeFill } from "react-icons/bs"
 
-import FeatureCard from "./FeatureCard"
+import { BenefitCard } from "./BenefitsCard"
 
 export const Benefits = () => {
   return (
     <div id="benefits" className="bg-gray-500/20 dark:bg-gray-800/50">
-      <div className="mx-2 my-24 space-y-4">
-        {/* Heading */}
+      <div className="mx-2 my-36 space-y-4">
+        {/* Headline */}
         <div className="text-center text-4xl font-bold tracking-tight md:text-6xl">
           No Fuss. Only{" "}
           <span className="text-green-600 dark:text-green-500">Benefits</span>
         </div>
-        {/* Features */}
-        <div className="mx-auto flex max-w-6xl flex-col flex-wrap items-center justify-center gap-10 md:flex-row md:items-stretch">
-          {/* Card 1 */}
-          <FeatureCard
+        {/* Benefits */}
+        <div className="mx-auto flex max-w-7xl flex-col items-stretch justify-center gap-16 p-8 lg:flex-row lg:items-start lg:gap-20 lg:py-12">
+          {/* Card 1 - Render a list of benefits */}
+          <BenefitCard
             key={1}
             title="100% Secure"
             icon={<Lock className="text-blue-500" />}
@@ -35,7 +35,7 @@ export const Benefits = () => {
             ]}
           />
           {/* Card 2 */}
-          <FeatureCard
+          <BenefitCard
             key={2}
             title="Lightning Fast"
             icon={
@@ -43,22 +43,14 @@ export const Benefits = () => {
             }
             features={[
               "One-click configuration",
-              <>
-                <HighlightText text="2+ hours" /> saved configuring SEO
-              </>,
-              <>
-                <HighlightText text="5+ hours" /> saved configuring UI
-              </>,
-              <>
-                <HighlightText text="6+ hours" /> saved configuring databases
-              </>,
-              <>
-                <HighlightText text="9+ hours" /> saved configuring auth
-              </>,
+              "2+ hours saved configuring SEO",
+              "5+ hours saved configuring UI",
+              "6+ hours saved configuring databases",
+              "9+ hours saved configuring auth",
             ]}
           />
           {/* Card 3 */}
-          <FeatureCard
+          <BenefitCard
             key={3}
             title="Flexible"
             icon={<DollarSign className="text-green-400" />}
@@ -72,7 +64,4 @@ export const Benefits = () => {
       </div>
     </div>
   )
-}
-export function HighlightText({ text }: { text: string }) {
-  return <span className="rounded bg-muted px-0.5 text-green-500">{text}</span>
 }
