@@ -10,8 +10,8 @@ export const MainNavbar = () => {
   const [firstLink, ...rest] = siteConfig.navLinks
 
   return (
-    <div className="hidden bg-background md:flex md:justify-center md:p-3">
-      <div className="md:flex md:w-2/3 md:justify-between">
+    <div className="hidden bg-background lg:flex lg:justify-center lg:p-3">
+      <div className="lg:flex lg:w-2/3 lg:justify-between">
         {/* Left side */}
         <div className="flex items-center">
           <NavItem
