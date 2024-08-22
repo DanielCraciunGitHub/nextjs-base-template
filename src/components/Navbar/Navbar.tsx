@@ -5,7 +5,8 @@ export default function NavBar() {
   return (
     // ! TIP: Add the "sticky" class to ensure the navbar persists when you scroll down.
     <nav className="top-0 z-50">
-      <MainNavbar />
+      {/* See the `MainNavbar` component to understand the Navbar layouts more */}
+      <MainNavbar type="1-n" />
       <MobileNavbar />
     </nav>
   )
