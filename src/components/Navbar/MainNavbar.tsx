@@ -100,9 +100,11 @@ const Navbar1N1 = () => {
           </span>
         </div>
       </div>
-      <div className="absolute right-3 top-3">
-        <DarkModeButton />
-      </div>
+      {darkModeButton ? (
+        <div className="absolute right-3 top-3">
+          <DarkModeButton />
+        </div>
+      ) : null}
     </div>
   )
 }
