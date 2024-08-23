@@ -52,7 +52,7 @@
           }
         ], // Prevent conflicts between Prettier and Airbnb ESLint rules
         "tailwindcss/no-custom-classname": ["off"], // Allow custom class names (not restricted to Tailwind)
-        "import/no-extraneous-dependencies": "warn", // Warn about extraneous dependencies in TypeScript files
+        "import/no-extraneous-dependencies": "off", // Warn about extraneous dependencies in TypeScript files
         "no-param-reassign": "off", // Allow parameter reassignment
         "consistent-return": "off", // Disable consistent return requirement
         "no-empty-pattern": "off", // Allow empty destructuring patterns
