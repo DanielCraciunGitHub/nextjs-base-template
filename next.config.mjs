@@ -1,3 +1,8 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import createMDX from "fumadocs-mdx/config"
+
+const withMDX = createMDX()
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -11,6 +16,9 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    serverComponentsExternalPackages: ["shiki", "vscode-oniguruma"],
+  },
 }
 
-export default nextConfig
+export default withMDX(nextConfig)
