@@ -1,11 +1,11 @@
 "use client"
 
-import { useRef } from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
+import { useRef } from "react"
 
-import { useKeybind } from "@/hooks/useKeybind"
 import { Button } from "@/components/ui/button"
+import { useKeybind } from "@/hooks/useKeybind"
 
 export function DarkModeButton() {
   const { theme, setTheme } = useTheme()

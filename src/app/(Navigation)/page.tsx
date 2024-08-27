@@ -1,5 +1,5 @@
-import { projectName } from "@/config/next-inject"
 import { ResendDemo } from "@/components/Resend/ResendDemo"
+import { projectName } from "@/config/next-inject"
 
 export default async function page() {
   return (
@@ -9,8 +9,8 @@ export default async function page() {
       </div>
       <ResendDemo
         // ! Please don't spam me 🙏
-        testEmail={"danielcraciun9174@gmail.com"}
-        testName={"YOUR NAME"}
+        testEmail="danielcraciun9174@gmail.com"
+        testName="YOUR NAME"
       />
     </section>
   )
