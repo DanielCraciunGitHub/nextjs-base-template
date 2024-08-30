@@ -4,7 +4,7 @@ import { usePathname, useRouter } from "next/navigation"
 import type { ReactNode } from "react"
 import type Stripe from "stripe"
 
-import { getStripeUrl } from "@/app/_actions/stripe"
+import { getStripeUrl } from "@/components/Stripe/stripeAction"
 import type { ButtonProps } from "@/components/ui/button"
 import { Button } from "@/components/ui/button"
 

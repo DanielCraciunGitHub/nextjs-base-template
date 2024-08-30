@@ -1,19 +1,14 @@
-import { Moon, Sun } from "lucide-react"
-
-import { getProductPrice } from "@/app/_actions/stripe"
+import { PricingCard } from "@/components/Stripe/PricingCard"
+import { getProductPrice } from "@/components/Stripe/stripeAction"
+import StripeButton from "@/components/Stripe/StripeButton"
 import { prices } from "@/lib/stripe"
-
-import { OneOffCard } from "./OneOffCard"
-import SubscriptionCard from "./SubscriptionCard"
 
 export async function DemoOneOff() {
   const priceId = prices.oneOff
   const price = (await getProductPrice(priceId)) as string
 
   return (
-    <OneOffCard
-      icon={<Moon className="text-gray-500" />}
-      theme="green"
+    <PricingCard
       title="One Off"
       features={[
         "24/7 Q/A support from our staff",
@@ -21,7 +16,13 @@ export async function DemoOneOff() {
         "Premium Resources",
       ]}
       price={price}
-      priceIds={[priceId]}
+      ogPrice="$2,000.00"
+      hot
+      cta={
+        <StripeButton mode="payment" priceIds={[priceId]}>
+          Purchase
+        </StripeButton>
+      }
     />
   )
 }
@@ -30,17 +31,21 @@ export async function DemoSubscription() {
   const price = (await getProductPrice(priceId)) as string
 
   return (
-    <SubscriptionCard
-      icon={<Sun className="text-yellow-500" />}
-      theme="green"
-      title="Subscription"
+    <PricingCard
+      title="One Off"
       features={[
         "24/7 Q/A support from our staff",
         "10x greater earnings",
         "Premium Resources",
       ]}
       price={price}
-      priceIds={[priceId]}
+      ogPrice="$29.99"
+      hot
+      cta={
+        <StripeButton mode="subscription" priceIds={[priceId]}>
+          Purchase
+        </StripeButton>
+      }
     />
   )
 }
