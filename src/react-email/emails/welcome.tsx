@@ -44,7 +44,7 @@ export const WelcomeEmail = ({ firstName }: WelcomeProps) => {
       <Head />
       <Preview>{previewText}</Preview>
       <Tailwind>
-        <Body className="mx-auto my-auto bg-white font-sans">
+        <Body className="m-auto bg-white font-sans">
           <Container className="mx-auto my-16 max-w-xl rounded border border-solid border-gray-300 p-6">
             {/* Image */}
             <Section className="mt-24">
@@ -98,7 +98,7 @@ export const WelcomeEmail = ({ firstName }: WelcomeProps) => {
               </Text>
               <Text className="leading-12 text-xs text-gray-400">
                 If you have any questions or concerns, please{" "}
-                <Link href={`mailto:danielcracbusiness@gmail.com`}>
+                <Link href="mailto:danielcracbusiness@gmail.com">
                   email us here.
                 </Link>
               </Text>

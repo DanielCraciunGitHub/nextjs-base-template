@@ -1,4 +1,3 @@
-import { Toaster } from "@/components/ui/toaster"
 import { Footer } from "@/components/Footer"
 import NavBar from "@/components/Navbar/Navbar"
 
@@ -8,7 +7,6 @@ export default function layout({ children }: { children: React.ReactNode }) {
       <NavBar />
       <main className="flex flex-1 justify-center">{children}</main>
       <Footer />
-      <Toaster />
     </>
   )
 }

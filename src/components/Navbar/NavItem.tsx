@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
 import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
+import React from "react"
 
-import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 interface NavItemProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   page: string
@@ -13,6 +13,7 @@ interface NavItemProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   icon?: React.ReactNode
 }
 
+// ! An aesthetic navbar item.
 export function NavItem(props: NavItemProps) {
   const segment = useSelectedLayoutSegment()
 
@@ -28,7 +29,10 @@ export function NavItem(props: NavItemProps) {
       )}
       {...restProps}
     >
-      {text ?? icon}
+      <div className="flex">
+        {text}
+        {icon}
+      </div>
     </Link>
   )
 }

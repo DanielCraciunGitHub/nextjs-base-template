@@ -1,8 +1,14 @@
 import "@/styles/globals.css"
 
-import NextTopLoader from "nextjs-toploader"
+import { Bricolage_Grotesque } from "next/font/google"
 
 import { NextInjectProvider } from "@/components/next-inject-providers"
+import { cn } from "@/lib/utils"
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  display: "swap",
+})
 
 export default function rootLayout({
   children,
@@ -11,9 +17,7 @@ export default function rootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex min-h-screen flex-col">
-        {/* // ! This component shows a green loading bar when traversing internal pages in your site */}
-        <NextTopLoader showSpinner={false} color="green" />
+      <body className={cn("flex min-h-screen flex-col", bricolage.className)}>
         <NextInjectProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
         </NextInjectProvider>
