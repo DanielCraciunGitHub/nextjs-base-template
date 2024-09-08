@@ -1,9 +1,8 @@
 import Link from "next/link"
 import { BsLightningChargeFill } from "react-icons/bs"
+import { NavItem } from "src/components/Navbar/NavItem"
 
 import { projectName, siteConfig } from "@/config/next-inject"
-
-import { NavItem } from "./Navbar/NavItem"
 
 // ! A beautiful mobile friendly footer to start out with.
 export const Footer = () => {
