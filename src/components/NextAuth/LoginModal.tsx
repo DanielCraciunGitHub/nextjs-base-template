@@ -2,6 +2,9 @@
 
 import type { ReactNode } from "react"
 
+import { EmailProvider } from "@/components/NextAuth/EmailProvider"
+import { SocialProviders } from "@/components/NextAuth/SocialProviders"
+import { WordedSeparator } from "@/components/NextAuth/WordedSeparator"
 import {
   Dialog,
   DialogContent,
@@ -10,8 +13,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-
-import { SocialProviders } from "./SocialProviders"
 
 interface LoginModalProps {
   children: ReactNode
@@ -28,6 +29,8 @@ export const LoginModal = ({ children }: LoginModalProps) => {
         </DialogHeader>
 
         <SocialProviders />
+        <WordedSeparator word="or" />
+        <EmailProvider />
       </DialogContent>
     </Dialog>
   )

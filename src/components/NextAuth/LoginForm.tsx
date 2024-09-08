@@ -1,5 +1,8 @@
 "use client"
 
+import { EmailProvider } from "@/components/NextAuth/EmailProvider"
+import { SocialProviders } from "@/components/NextAuth/SocialProviders"
+import { WordedSeparator } from "@/components/NextAuth/WordedSeparator"
 import {
   Card,
   CardContent,
@@ -8,11 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-import { SocialProviders } from "./SocialProviders"
-
-interface LoginFormProps {}
-
-export const LoginForm = ({}: LoginFormProps) => {
+export const LoginForm = () => {
   return (
     <Card className="w-[400px]">
       <CardContent className="flex flex-col space-y-2 border-muted">
@@ -22,6 +21,8 @@ export const LoginForm = ({}: LoginFormProps) => {
         </CardHeader>
 
         <SocialProviders />
+        <WordedSeparator word="or" />
+        <EmailProvider />
       </CardContent>
     </Card>
   )
