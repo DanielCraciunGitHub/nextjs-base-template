@@ -28,7 +28,8 @@ import type { NavItem, SocialLink } from "@/types/next-inject"
 export const projectName = "<NEXT-INJECT-NAME>"
 
 export const siteConfig = {
-  email: `johndoe@${projectName}.com`,
+  // ? (Optional) Set this to your email
+  email: `danielcracbusiness@gmail.com`,
   url:
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
@@ -68,7 +69,7 @@ export const siteConfig = {
       icon: <BsTwitterX />,
     },
     {
-      href: "https://medium.com/@danielcracbusiness",
+      href: "https://medium.com/@dc0",
       name: "Medium.com",
       icon: <BsMedium />,
     },

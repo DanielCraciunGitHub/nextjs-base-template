@@ -1,5 +1,7 @@
 import { Menu } from "lucide-react"
 import { BsLightningChargeFill } from "react-icons/bs"
+import { DarkModeButton } from "src/components/Buttons/DarkModeButton"
+import { NavItem } from "src/components/Navbar/NavItem"
 
 import {
   Sheet,
@@ -9,15 +11,17 @@ import {
 } from "@/components/ui/sheet"
 import { siteConfig } from "@/config/next-inject"
 
-import { DarkModeButton } from "../Buttons/DarkModeButton"
-import { NavItem } from "./NavItem"
+// ! Disable this to remove the green separator lines in the navbar.
+export const divider = true
+// ! Enable this to add a darkmode button in the navbar.
+export const darkModeButton = false
 
 // ! The mobile nav bar with a burger menu
 export function MobileNavbar() {
   const [mainItem, ...navItems] = siteConfig.navLinks
 
   return (
-    <div className="flex items-center p-4 md:hidden">
+    <div className="flex items-center p-4 lg:hidden">
       <NavItem
         key={mainItem.name}
         page={mainItem.href}
@@ -34,7 +38,9 @@ export function MobileNavbar() {
           </SheetTrigger>
         </div>
         <SheetContent className="flex flex-col items-center" side="top">
-          <div className="flex w-full flex-col items-center divide-y-2 divide-primary">
+          <div
+            className={`flex w-full flex-col items-center ${divider ? "divide-y-2 divide-primary" : ""}`}
+          >
             {navItems.map((item) => (
               <div key={item.name} className="w-full">
                 <SheetClose asChild>
@@ -47,9 +53,11 @@ export function MobileNavbar() {
               </div>
             ))}
           </div>
-          <div className="absolute bottom-3 right-3">
-            <DarkModeButton />
-          </div>
+          {darkModeButton ? (
+            <div className="absolute right-3 top-3">
+              <DarkModeButton />
+            </div>
+          ) : null}
         </SheetContent>
       </Sheet>
     </div>
