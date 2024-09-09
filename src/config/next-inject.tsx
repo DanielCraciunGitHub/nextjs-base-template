@@ -49,7 +49,7 @@ export const siteConfig = {
   // ! Feel free to add/remove relevant social links from here.
   socialLinks: [
     {
-      href: "https://discord.gg/C2PXBMqpuV",
+      href: "https://discord.gg/CU2G3D4zjB",
       name: "Discord.gg",
       icon: <BsDiscord />,
     },
