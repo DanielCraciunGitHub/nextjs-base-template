@@ -1,4 +1,4 @@
-import { createTRPCRouter, publicProcedure } from "../trpc"
+import { createTRPCRouter, publicProcedure } from "src/server/trpc"
 
 export const helloRouter = createTRPCRouter({
   hello: publicProcedure.query(async ({ ctx }) => {

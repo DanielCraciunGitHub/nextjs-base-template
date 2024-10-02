@@ -1,23 +1,23 @@
-import type React from "react";
+import type React from "react"
 
 export type NavItem = {
-  href: string;
-  emoji?: string;
+  href: string
+  emoji?: string
 } & (
   | {
-      name: string;
+      name: string
     }
   | {
-      icon: React.ReactNode;
+      icon: React.ReactNode
     }
-);
+)
 export type SocialLink = {
-  href: string;
-  name: string;
-  icon: React.ReactNode;
-};
+  href: string
+  name: string
+  icon: React.ReactNode
+}
 export type ActionResponse = {
-  ok: boolean;
-  error?: string;
-  code?: number;
-};
+  ok: boolean
+  error?: string
+  code?: number
+}

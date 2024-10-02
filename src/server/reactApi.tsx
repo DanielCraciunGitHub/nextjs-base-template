@@ -1,22 +1,25 @@
+/* eslint-disable no-return-assign */
+
 "use client"
 
-import { useState } from "react"
-import { siteConfig } from "@/config"
-import { type AppRouter } from "@/server"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import {
-  unstable_httpBatchStreamLink as httpBatchStreamLink,
   loggerLink,
+  unstable_httpBatchStreamLink as httpBatchStreamLink,
 } from "@trpc/client"
 import { createTRPCReact } from "@trpc/react-query"
-import { ThemeProviderProps } from "next-themes/dist/types"
+import type { ThemeProviderProps } from "next-themes/dist/types"
+import { useState } from "react"
 import SuperJSON from "superjson"
+
+import { siteConfig } from "@/config/next-inject"
+import { type AppRouter } from "@/server"
 
 export const api = createTRPCReact<AppRouter>()
 
 const createQueryClient = () => new QueryClient()
 
-let clientQueryClientSingleton: QueryClient | undefined = undefined
+let clientQueryClientSingleton: QueryClient | undefined
 
 const getQueryClient = () => {
   if (typeof window === "undefined") {
@@ -40,7 +43,7 @@ export function TrpcProvider({ children }: ThemeProviderProps) {
         }),
         httpBatchStreamLink({
           transformer: SuperJSON,
-          url: siteConfig.url + "/api/trpc",
+          url: `${siteConfig.url}/api/trpc`,
           headers(opts) {
             const headers = new Headers()
             headers.set("x-trpc-source", "nextjs-react")

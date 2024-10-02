@@ -7,7 +7,7 @@
  * need to use are documented accordingly near the end.
  */
 
-import { initTRPC, TRPCError } from "@trpc/server"
+import { initTRPC } from "@trpc/server"
 import superjson from "superjson"
 import { ZodError } from "zod"
 
@@ -55,7 +55,7 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
  *
  * @see https://trpc.io/docs/server/server-side-calls
  */
-export const createCallerFactory = t.createCallerFactory
+export const { createCallerFactory } = t
 
 /**
  * 3. ROUTER & PROCEDURE (THE IMPORTANT BIT)

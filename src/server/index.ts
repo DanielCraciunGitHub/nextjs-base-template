@@ -1,6 +1,5 @@
+import { helloRouter } from "@/server/routers"
 import { createCallerFactory, createTRPCRouter } from "@/server/trpc"
-
-import { helloRouter } from "./routers"
 
 /**
  * This is the primary router for your server.
