@@ -1,11 +1,13 @@
 import { api } from "@/server/serverApi"
 
-export default async function Home() {
+import { projectName } from "@/config/next-inject"
+
+export default async function page() {
   testTrpc()
   return (
-    <section className="flex flex-col">
+    <section className="flex w-full flex-col items-center">
       <div className="text-4xl font-extrabold tracking-tight md:text-5xl">
-        Hello world
+        {projectName} is Awesome!
       </div>
     </section>
   )

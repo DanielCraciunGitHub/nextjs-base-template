@@ -1,7 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { ChevronUp } from "lucide-react"
+import { useEffect, useState } from "react"
 
 import { Button } from "@/components/ui/button"
 
@@ -11,6 +11,7 @@ const ScrollToTopButton = () => {
   useEffect(() => {
     const toggleVisibility = () => {
       // if the user scrolls down, show the button
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       window.scrollY > 500 ? setIsVisible(true) : setIsVisible(false)
     }
     // listen for scroll events
@@ -24,6 +25,7 @@ const ScrollToTopButton = () => {
 
   // handles the animation when scrolling to the top
   const scrollToTop = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     isVisible &&
       window.scrollTo({
         top: 0,
