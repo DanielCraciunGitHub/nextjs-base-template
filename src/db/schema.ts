@@ -1,7 +1,6 @@
 import { integer, sqliteTableCreator, text } from "drizzle-orm/sqlite-core"
 
-// ! Feel free to rename `project1` to whatever you like
-const sqliteTable = sqliteTableCreator((name) => `project1_${name}`)
+const sqliteTable = sqliteTableCreator((name) => name)
 
 // ! This is a table used only for demo purposes
 export const users = sqliteTable("user", {
