@@ -1,5 +1,7 @@
 import { Menu } from "lucide-react"
 import { BsLightningChargeFill } from "react-icons/bs"
+import { DarkModeButton } from "src/components/Buttons/DarkModeButton"
+import { NavItem } from "src/components/Navbar/NavItem"
 
 import {
   Sheet,
@@ -8,9 +10,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { siteConfig } from "@/config/next-inject"
-
-import { DarkModeButton } from "../Buttons/DarkModeButton"
-import { NavItem } from "./NavItem"
 
 // ! Disable this to remove the green separator lines in the navbar.
 export const divider = true

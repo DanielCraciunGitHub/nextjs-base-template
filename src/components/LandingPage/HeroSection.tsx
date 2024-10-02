@@ -27,12 +27,13 @@ export const HeroSection = async () => {
           />
         </div>
         {/* Right side - For Image */}
-        <div className="hidden w-full flex-col lg:block lg:w-3/4">
+        <div className="hidden w-full flex-col lg:block">
           <Image
-            src="/images/next-inject-transparent.webp"
-            width={400}
-            height={400}
-            alt="next inject"
+            src="/placeholder.svg"
+            width="600"
+            height="400"
+            alt="Hero"
+            className="mx-auto aspect-[3/2] overflow-hidden rounded-xl object-cover"
           />
         </div>
       </section>
